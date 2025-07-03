@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(0, 0%, 0%);
+  --muted: hsl(0, 0%, 96%);
+  --muted-foreground: hsl(0, 0%, 50%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(0, 0%, 0%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(0, 0%, 0%);
+  --border: hsl(0, 0%, 0%);
+  --input: hsl(0, 0%, 100%);
+  --primary: hsl(0, 0%, 0%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(0, 0%, 96%);
+  --secondary-foreground: hsl(0, 0%, 0%);
+  --accent: hsl(0, 0%, 96%);
+  --accent-foreground: hsl(0, 0%, 0%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(0, 0%, 0%);
+  --radius: 0rem;
+  
+  /* Brutalist color scheme */
+  --brutal-black: hsl(0, 0%, 0%);
+  --brutal-white: hsl(0, 0%, 100%);
+  --brutal-grey: hsl(0, 0%, 50%);
+  --brutal-beige: hsl(60, 56%, 91%);
+  --brutal-dark: hsl(0, 0%, 25%);
+}
+
+.dark {
+  --background: hsl(0, 0%, 0%);
+  --foreground: hsl(0, 0%, 100%);
+  --muted: hsl(0, 0%, 15%);
+  --muted-foreground: hsl(0, 0%, 50%);
+  --popover: hsl(0, 0%, 0%);
+  --popover-foreground: hsl(0, 0%, 100%);
+  --card: hsl(0, 0%, 0%);
+  --card-foreground: hsl(0, 0%, 100%);
+  --border: hsl(0, 0%, 100%);
+  --input: hsl(0, 0%, 0%);
+  --primary: hsl(0, 0%, 100%);
+  --primary-foreground: hsl(0, 0%, 0%);
+  --secondary: hsl(0, 0%, 15%);
+  --secondary-foreground: hsl(0, 0%, 100%);
+  --accent: hsl(0, 0%, 15%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 62%, 30%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(0, 0%, 100%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-[var(--brutal-beige)] text-[var(--brutal-black)] font-sans antialiased;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .brutal-border {
+    border: 3px solid var(--brutal-black);
+  }
+  
+  .brutal-button {
+    @apply bg-[var(--brutal-black)] text-[var(--brutal-white)] border-[3px] border-[var(--brutal-black)] uppercase font-bold transition-all duration-200;
+  }
+  
+  .brutal-button:hover {
+    @apply bg-[var(--brutal-white)] text-[var(--brutal-black)];
+  }
+  
+  .brutal-grid {
+    display: grid;
+    gap: 0;
+  }
+  
+  .helvetica {
+    font-family: 'Helvetica', Arial, sans-serif;
+  }
+  
+  .courier {
+    font-family: 'Courier New', monospace;
+  }
+  
+  .project-card {
+    aspect-ratio: 1;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  
+  .project-card:hover {
+    @apply bg-[var(--brutal-black)] text-[var(--brutal-white)];
+  }
+  
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+  
+  .modal-content {
+    background-color: var(--brutal-beige);
+    border: 5px solid var(--brutal-black);
+    width: 90%;
+    height: 90%;
+    overflow-y: auto;
+    position: relative;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--brutal-black);
+    color: var(--brutal-white);
+    border: none;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: bold;
+    z-index: 10;
+  }
+  
+  .close-button:hover {
+    background: var(--brutal-white);
+    color: var(--brutal-black);
+  }
+
+  .form-input {
+    @apply w-full brutal-border p-4 bg-[var(--brutal-white)] courier uppercase tracking-wider focus:bg-[var(--brutal-black)] focus:text-[var(--brutal-white)] transition-all duration-200;
+  }
+
+  .form-input:focus {
+    outline: none;
+  }
+
+  .form-select {
+    @apply w-full brutal-border p-4 bg-[var(--brutal-white)] courier uppercase tracking-wider focus:bg-[var(--brutal-black)] focus:text-[var(--brutal-white)] transition-all duration-200;
+  }
+
+  .form-textarea {
+    @apply w-full brutal-border p-4 bg-[var(--brutal-white)] courier uppercase tracking-wider focus:bg-[var(--brutal-black)] focus:text-[var(--brutal-white)] transition-all duration-200 resize-none;
+  }
+
+  .three-container {
+    width: 100%;
+    height: 60vh;
+    border: 3px solid var(--brutal-black);
+    background: var(--brutal-white);
+  }
+}
+
+@layer utilities {
+  .text-shadow-none {
+    text-shadow: none;
+  }
+}
