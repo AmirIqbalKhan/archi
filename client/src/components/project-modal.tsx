@@ -37,10 +37,14 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         </button>
         
         <div className="p-12">
-          <div className="brutal-border bg-[var(--brutal-black)] text-[var(--brutal-white)] p-6 mb-8 inline-block">
-            <h2 className="helvetica text-3xl font-black uppercase tracking-wider">
+          <div className="mb-8">
+            <div className="bg-[var(--modern-accent)] text-[var(--modern-light)] px-4 py-2 rounded-full text-sm font-medium inline-block mb-4">
+              {project.type}
+            </div>
+            <h2 className="inter-font text-3xl font-light text-[var(--modern-dark)] mb-2">
               {project.title}
             </h2>
+            <p className="inter-font text-[var(--modern-grey)]">{project.category}</p>
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -48,36 +52,36 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               <img 
                 src={project.imageUrl} 
                 alt={project.title}
-                className="w-full h-auto brutal-border filter grayscale"
+                className="w-full h-auto rounded-lg shadow-lg"
               />
             </div>
             <div>
               <div className="space-y-6">
                 <div>
-                  <div className="brutal-border bg-[var(--brutal-dark)] text-[var(--brutal-white)] p-3 mb-4 inline-block">
-                    <h3 className="courier text-lg uppercase font-bold tracking-wider">PROJECT DETAILS</h3>
+                  <h3 className="inter-font text-lg font-semibold text-[var(--modern-dark)] mb-4">Project Details</h3>
+                  <div className="space-y-3">
+                    <div className="bg-[var(--modern-light)] border border-[var(--modern-border)] rounded-lg p-4">
+                      <span className="inter-font text-sm font-medium text-[var(--modern-grey)]">Type:</span>
+                      <span className="inter-font text-sm text-[var(--modern-dark)] ml-2">{project.type}</span>
+                    </div>
+                    <div className="bg-[var(--modern-light)] border border-[var(--modern-border)] rounded-lg p-4">
+                      <span className="inter-font text-sm font-medium text-[var(--modern-grey)]">Location:</span>
+                      <span className="inter-font text-sm text-[var(--modern-dark)] ml-2">{project.location}</span>
+                    </div>
+                    <div className="bg-[var(--modern-light)] border border-[var(--modern-border)] rounded-lg p-4">
+                      <span className="inter-font text-sm font-medium text-[var(--modern-grey)]">Year:</span>
+                      <span className="inter-font text-sm text-[var(--modern-dark)] ml-2">{project.year}</span>
+                    </div>
+                    <div className="bg-[var(--modern-light)] border border-[var(--modern-border)] rounded-lg p-4">
+                      <span className="inter-font text-sm font-medium text-[var(--modern-grey)]">Area:</span>
+                      <span className="inter-font text-sm text-[var(--modern-dark)] ml-2">{project.area}</span>
+                    </div>
                   </div>
-                  <ul className="space-y-3 helvetica text-sm uppercase tracking-wide">
-                    <li className="brutal-border bg-[var(--brutal-grey)] text-[var(--brutal-white)] p-3">
-                      TYPE: {project.type}
-                    </li>
-                    <li className="brutal-border bg-[var(--brutal-grey)] text-[var(--brutal-white)] p-3">
-                      LOCATION: {project.location}
-                    </li>
-                    <li className="brutal-border bg-[var(--brutal-grey)] text-[var(--brutal-white)] p-3">
-                      YEAR: {project.year}
-                    </li>
-                    <li className="brutal-border bg-[var(--brutal-grey)] text-[var(--brutal-white)] p-3">
-                      AREA: {project.area}
-                    </li>
-                  </ul>
                 </div>
                 
                 <div>
-                  <div className="brutal-border bg-[var(--brutal-dark)] text-[var(--brutal-white)] p-3 mb-4 inline-block">
-                    <h3 className="courier text-lg uppercase font-bold tracking-wider">DESCRIPTION</h3>
-                  </div>
-                  <p className="helvetica text-base leading-relaxed uppercase tracking-wide">
+                  <h3 className="inter-font text-lg font-semibold text-[var(--modern-dark)] mb-4">Description</h3>
+                  <p className="inter-font text-base leading-relaxed text-[var(--modern-grey)]">
                     {project.description}
                   </p>
                 </div>

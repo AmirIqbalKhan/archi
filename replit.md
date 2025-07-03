@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a full-stack web application for an architectural portfolio featuring a brutalist design aesthetic. The project showcases architectural projects and provides a contact form for potential clients. It's built with a React frontend, Express backend, and uses Drizzle ORM for database operations.
+This is a full-stack web application for an architectural portfolio featuring a modern minimal design aesthetic. The project showcases architectural projects and provides a contact form for potential clients. It's built with a React frontend, Express backend, and uses Drizzle ORM for database operations.
 
 ## System Architecture
 
@@ -49,10 +49,10 @@ This is a full-stack web application for an architectural portfolio featuring a 
 - **Footer**: Additional links and information
 
 ### Design System
-- **Typography**: Helvetica and Courier fonts for brutalist aesthetic
-- **Colors**: Black, white, grey, and beige color palette
-- **Layout**: Sharp borders and geometric grid system
-- **Interactions**: Hover effects and smooth transitions
+- **Typography**: Inter font for modern minimal aesthetic
+- **Colors**: Clean palette with dark grey, white, light grey, and blue accent
+- **Layout**: Rounded corners, subtle shadows, and spacious grid system
+- **Interactions**: Smooth hover effects and gentle transitions
 
 ## Data Flow
 
@@ -104,7 +104,8 @@ This is a full-stack web application for an architectural portfolio featuring a 
 
 ```
 Changelog:
-- July 03, 2025. Initial setup
+- July 03, 2025. Initial setup with brutalist theme
+- July 03, 2025. Updated to modern minimal theme with Inter typography, rounded corners, and clean aesthetic
 ```
 
 ## User Preferences

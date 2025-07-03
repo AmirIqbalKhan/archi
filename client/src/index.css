@@ -4,32 +4,33 @@
 
 :root {
   --background: hsl(0, 0%, 100%);
-  --foreground: hsl(0, 0%, 0%);
-  --muted: hsl(0, 0%, 96%);
-  --muted-foreground: hsl(0, 0%, 50%);
+  --foreground: hsl(220, 15%, 20%);
+  --muted: hsl(210, 40%, 98%);
+  --muted-foreground: hsl(215, 16%, 47%);
   --popover: hsl(0, 0%, 100%);
-  --popover-foreground: hsl(0, 0%, 0%);
+  --popover-foreground: hsl(220, 15%, 20%);
   --card: hsl(0, 0%, 100%);
-  --card-foreground: hsl(0, 0%, 0%);
-  --border: hsl(0, 0%, 0%);
+  --card-foreground: hsl(220, 15%, 20%);
+  --border: hsl(214, 32%, 91%);
   --input: hsl(0, 0%, 100%);
-  --primary: hsl(0, 0%, 0%);
+  --primary: hsl(220, 15%, 20%);
   --primary-foreground: hsl(0, 0%, 100%);
-  --secondary: hsl(0, 0%, 96%);
-  --secondary-foreground: hsl(0, 0%, 0%);
-  --accent: hsl(0, 0%, 96%);
-  --accent-foreground: hsl(0, 0%, 0%);
+  --secondary: hsl(210, 40%, 98%);
+  --secondary-foreground: hsl(220, 15%, 20%);
+  --accent: hsl(210, 40%, 98%);
+  --accent-foreground: hsl(220, 15%, 20%);
   --destructive: hsl(0, 84%, 60%);
   --destructive-foreground: hsl(0, 0%, 98%);
-  --ring: hsl(0, 0%, 0%);
-  --radius: 0rem;
+  --ring: hsl(220, 15%, 20%);
+  --radius: 0.5rem;
   
-  /* Brutalist color scheme */
-  --brutal-black: hsl(0, 0%, 0%);
-  --brutal-white: hsl(0, 0%, 100%);
-  --brutal-grey: hsl(0, 0%, 50%);
-  --brutal-beige: hsl(60, 56%, 91%);
-  --brutal-dark: hsl(0, 0%, 25%);
+  /* Modern minimal color scheme */
+  --modern-dark: hsl(220, 15%, 20%);
+  --modern-light: hsl(0, 0%, 100%);
+  --modern-grey: hsl(215, 16%, 47%);
+  --modern-background: hsl(210, 40%, 98%);
+  --modern-accent: hsl(217, 91%, 60%);
+  --modern-border: hsl(214, 32%, 91%);
 }
 
 .dark {
@@ -63,45 +64,43 @@
   }
 
   body {
-    @apply bg-[var(--brutal-beige)] text-[var(--brutal-black)] font-sans antialiased;
+    @apply bg-[var(--modern-background)] text-[var(--modern-dark)] font-sans antialiased;
     overflow-x: hidden;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
 }
 
 @layer components {
-  .brutal-border {
-    border: 3px solid var(--brutal-black);
+  .modern-border {
+    border: 1px solid var(--modern-border);
   }
   
-  .brutal-button {
-    @apply bg-[var(--brutal-black)] text-[var(--brutal-white)] border-[3px] border-[var(--brutal-black)] uppercase font-bold transition-all duration-200;
+  .modern-button {
+    @apply bg-[var(--modern-dark)] text-[var(--modern-light)] border border-[var(--modern-border)] font-medium rounded-lg transition-all duration-200 hover:bg-[var(--modern-accent)] hover:border-[var(--modern-accent)] shadow-sm;
   }
   
-  .brutal-button:hover {
-    @apply bg-[var(--brutal-white)] text-[var(--brutal-black)];
+  .modern-card {
+    @apply bg-[var(--modern-light)] rounded-xl shadow-sm border border-[var(--modern-border)] transition-all duration-200 hover:shadow-md;
   }
   
-  .brutal-grid {
+  .modern-grid {
     display: grid;
-    gap: 0;
+    gap: 1.5rem;
   }
   
-  .helvetica {
-    font-family: 'Helvetica', Arial, sans-serif;
-  }
-  
-  .courier {
-    font-family: 'Courier New', monospace;
+  .inter-font {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
   
   .project-card {
     aspect-ratio: 1;
     cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    transition: all 0.3s ease;
   }
   
   .project-card:hover {
-    @apply bg-[var(--brutal-black)] text-[var(--brutal-white)];
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.1);
   }
   
   .modal-overlay {
@@ -110,7 +109,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
     z-index: 1000;
     display: flex;
     align-items: center;
@@ -119,10 +119,12 @@
   }
   
   .modal-content {
-    background-color: var(--brutal-beige);
-    border: 5px solid var(--brutal-black);
+    background-color: var(--modern-light);
+    border-radius: 1rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     width: 90%;
-    height: 90%;
+    max-width: 1200px;
+    max-height: 90vh;
     overflow-y: auto;
     position: relative;
   }
@@ -131,27 +133,29 @@
     position: absolute;
     top: 1rem;
     right: 1rem;
-    background: var(--brutal-black);
-    color: var(--brutal-white);
-    border: none;
-    width: 3rem;
-    height: 3rem;
+    background: var(--modern-light);
+    color: var(--modern-dark);
+    border: 1px solid var(--modern-border);
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1.25rem;
+    font-weight: 400;
     z-index: 10;
+    transition: all 0.2s ease;
   }
   
   .close-button:hover {
-    background: var(--brutal-white);
-    color: var(--brutal-black);
+    background: var(--modern-dark);
+    color: var(--modern-light);
   }
 
   .form-input {
-    @apply w-full brutal-border p-4 bg-[var(--brutal-white)] courier uppercase tracking-wider focus:bg-[var(--brutal-black)] focus:text-[var(--brutal-white)] transition-all duration-200;
+    @apply w-full border border-[var(--modern-border)] p-3 bg-[var(--modern-light)] rounded-lg focus:border-[var(--modern-accent)] focus:ring-2 focus:ring-[var(--modern-accent)] focus:ring-opacity-20 transition-all duration-200;
   }
 
   .form-input:focus {
@@ -159,18 +163,19 @@
   }
 
   .form-select {
-    @apply w-full brutal-border p-4 bg-[var(--brutal-white)] courier uppercase tracking-wider focus:bg-[var(--brutal-black)] focus:text-[var(--brutal-white)] transition-all duration-200;
+    @apply w-full border border-[var(--modern-border)] p-3 bg-[var(--modern-light)] rounded-lg focus:border-[var(--modern-accent)] focus:ring-2 focus:ring-[var(--modern-accent)] focus:ring-opacity-20 transition-all duration-200;
   }
 
   .form-textarea {
-    @apply w-full brutal-border p-4 bg-[var(--brutal-white)] courier uppercase tracking-wider focus:bg-[var(--brutal-black)] focus:text-[var(--brutal-white)] transition-all duration-200 resize-none;
+    @apply w-full border border-[var(--modern-border)] p-3 bg-[var(--modern-light)] rounded-lg focus:border-[var(--modern-accent)] focus:ring-2 focus:ring-[var(--modern-accent)] focus:ring-opacity-20 transition-all duration-200 resize-none;
   }
 
   .three-container {
     width: 100%;
     height: 60vh;
-    border: 3px solid var(--brutal-black);
-    background: var(--brutal-white);
+    border-radius: 1rem;
+    background: var(--modern-light);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   }
 }
 

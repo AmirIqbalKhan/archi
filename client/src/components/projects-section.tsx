@@ -12,12 +12,13 @@ export default function ProjectsSection() {
 
   if (isLoading) {
     return (
-      <section id="projects" className="min-h-screen bg-[var(--brutal-beige)]">
-        <div className="brutal-border border-t-0 bg-[var(--brutal-white)] p-12">
-          <div className="brutal-border bg-[var(--brutal-black)] text-[var(--brutal-white)] p-6 mb-12 inline-block">
-            <h2 className="helvetica text-4xl font-black uppercase tracking-wider">PROJECTS</h2>
+      <section id="projects" className="min-h-screen bg-[var(--modern-background)]">
+        <div className="max-w-7xl mx-auto p-12">
+          <div className="text-center mb-12">
+            <h2 className="inter-font text-4xl font-light text-[var(--modern-dark)] mb-4">Projects</h2>
+            <div className="w-16 h-1 bg-[var(--modern-accent)] mx-auto"></div>
           </div>
-          <div className="text-center courier uppercase tracking-wider">LOADING PROJECTS...</div>
+          <div className="text-center inter-font text-[var(--modern-grey)]">Loading projects...</div>
         </div>
       </section>
     );
@@ -25,27 +26,40 @@ export default function ProjectsSection() {
 
   return (
     <>
-      <section id="projects" className="min-h-screen bg-[var(--brutal-beige)]">
-        <div className="brutal-border border-t-0 bg-[var(--brutal-white)] p-12">
-          <div className="brutal-border bg-[var(--brutal-black)] text-[var(--brutal-white)] p-6 mb-12 inline-block">
-            <h2 className="helvetica text-4xl font-black uppercase tracking-wider">PROJECTS</h2>
+      <section id="projects" className="min-h-screen bg-[var(--modern-background)]">
+        <div className="max-w-7xl mx-auto p-12">
+          <div className="text-center mb-12">
+            <h2 className="inter-font text-4xl font-light text-[var(--modern-dark)] mb-4">Projects</h2>
+            <div className="w-16 h-1 bg-[var(--modern-accent)] mx-auto mb-6"></div>
+            <p className="inter-font text-[var(--modern-grey)] max-w-2xl mx-auto">
+              A collection of architectural projects that showcase modern design principles and innovative solutions.
+            </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
+          <div className="modern-grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {projects?.map((project) => (
               <div
                 key={project.id}
-                className="project-card brutal-border bg-[var(--brutal-white)] p-8 flex flex-col justify-between"
+                className="project-card modern-card p-6 flex flex-col justify-between"
                 onClick={() => setSelectedProject(project)}
               >
                 <div>
-                  <div className="brutal-border bg-[var(--brutal-dark)] text-[var(--brutal-white)] p-3 mb-4 inline-block">
-                    <h3 className="courier text-lg uppercase font-bold tracking-wider">{project.title}</h3>
+                  <div className="mb-4">
+                    <img 
+                      src={project.imageUrl} 
+                      alt={project.title}
+                      className="w-full h-48 object-cover rounded-lg mb-4"
+                    />
                   </div>
-                  <p className="helvetica text-sm uppercase tracking-wide mb-4">{project.category}</p>
+                  <div className="bg-[var(--modern-accent)] text-[var(--modern-light)] px-3 py-1 rounded-full text-xs font-medium inline-block mb-3">
+                    {project.type}
+                  </div>
+                  <h3 className="inter-font text-lg font-semibold text-[var(--modern-dark)] mb-2">{project.title}</h3>
+                  <p className="inter-font text-sm text-[var(--modern-grey)] mb-4">{project.category}</p>
                 </div>
-                <div className="brutal-border bg-[var(--brutal-black)] text-[var(--brutal-white)] p-2">
-                  <p className="courier text-xs uppercase tracking-widest text-center">VIEW PROJECT</p>
+                <div className="flex items-center justify-between">
+                  <span className="inter-font text-xs text-[var(--modern-grey)]">{project.location}</span>
+                  <span className="inter-font text-xs text-[var(--modern-grey)]">{project.year}</span>
                 </div>
               </div>
             ))}

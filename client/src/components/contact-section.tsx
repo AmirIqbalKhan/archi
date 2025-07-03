@@ -45,27 +45,29 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="min-h-screen bg-[var(--brutal-beige)]">
-      <div className="brutal-border border-t-0 bg-[var(--brutal-white)] p-12">
-        <div className="brutal-border bg-[var(--brutal-black)] text-[var(--brutal-white)] p-6 mb-12 inline-block">
-          <h2 className="helvetica text-4xl font-black uppercase tracking-wider">CONTACT</h2>
+    <section id="contact" className="min-h-screen bg-[var(--modern-background)]">
+      <div className="max-w-7xl mx-auto p-12">
+        <div className="text-center mb-12">
+          <h2 className="inter-font text-4xl font-light text-[var(--modern-dark)] mb-4">Contact</h2>
+          <div className="w-16 h-1 bg-[var(--modern-accent)] mx-auto mb-6"></div>
+          <p className="inter-font text-[var(--modern-grey)] max-w-2xl mx-auto">
+            Let's discuss your architectural project and bring your vision to life.
+          </p>
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <div>
-            <div className="brutal-border bg-[var(--brutal-dark)] text-[var(--brutal-white)] p-3 mb-6 inline-block">
-              <h3 className="courier text-lg uppercase font-bold tracking-wider">GET IN TOUCH</h3>
-            </div>
+          <div className="modern-card p-8">
+            <h3 className="inter-font text-xl font-semibold text-[var(--modern-dark)] mb-6">Get in Touch</h3>
             
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <div>
-                <label className="block courier text-sm uppercase font-bold tracking-wider mb-2">NAME</label>
+                <label className="block inter-font text-sm font-medium text-[var(--modern-dark)] mb-2">Name</label>
                 <input 
                   type="text"
                   {...form.register("name")}
                   className="form-input"
-                  placeholder="YOUR NAME"
+                  placeholder="Your name"
                 />
                 {form.formState.errors.name && (
                   <p className="text-red-500 text-sm mt-1">{form.formState.errors.name.message}</p>
@@ -73,12 +75,12 @@ export default function ContactSection() {
               </div>
               
               <div>
-                <label className="block courier text-sm uppercase font-bold tracking-wider mb-2">EMAIL</label>
+                <label className="block inter-font text-sm font-medium text-[var(--modern-dark)] mb-2">Email</label>
                 <input 
                   type="email"
                   {...form.register("email")}
                   className="form-input"
-                  placeholder="YOUR EMAIL"
+                  placeholder="your.email@example.com"
                 />
                 {form.formState.errors.email && (
                   <p className="text-red-500 text-sm mt-1">{form.formState.errors.email.message}</p>
@@ -86,16 +88,16 @@ export default function ContactSection() {
               </div>
               
               <div>
-                <label className="block courier text-sm uppercase font-bold tracking-wider mb-2">PROJECT TYPE</label>
+                <label className="block inter-font text-sm font-medium text-[var(--modern-dark)] mb-2">Project Type</label>
                 <select 
                   {...form.register("projectType")}
                   className="form-select"
                 >
-                  <option value="">SELECT PROJECT TYPE</option>
-                  <option value="residential">RESIDENTIAL</option>
-                  <option value="commercial">COMMERCIAL</option>
-                  <option value="institutional">INSTITUTIONAL</option>
-                  <option value="industrial">INDUSTRIAL</option>
+                  <option value="">Select project type</option>
+                  <option value="residential">Residential</option>
+                  <option value="commercial">Commercial</option>
+                  <option value="institutional">Institutional</option>
+                  <option value="industrial">Industrial</option>
                 </select>
                 {form.formState.errors.projectType && (
                   <p className="text-red-500 text-sm mt-1">{form.formState.errors.projectType.message}</p>
@@ -103,12 +105,12 @@ export default function ContactSection() {
               </div>
               
               <div>
-                <label className="block courier text-sm uppercase font-bold tracking-wider mb-2">MESSAGE</label>
+                <label className="block inter-font text-sm font-medium text-[var(--modern-dark)] mb-2">Message</label>
                 <textarea 
                   rows={6}
                   {...form.register("message")}
                   className="form-textarea"
-                  placeholder="DESCRIBE YOUR PROJECT"
+                  placeholder="Tell us about your project..."
                 />
                 {form.formState.errors.message && (
                   <p className="text-red-500 text-sm mt-1">{form.formState.errors.message.message}</p>
@@ -117,46 +119,44 @@ export default function ContactSection() {
               
               <button 
                 type="submit" 
-                className="brutal-button p-4 courier text-sm uppercase font-bold tracking-widest"
+                className="modern-button px-6 py-3 inter-font text-sm font-medium w-full"
                 disabled={submitContactMutation.isPending}
               >
-                {submitContactMutation.isPending ? "SENDING..." : "SEND MESSAGE"}
+                {submitContactMutation.isPending ? "Sending..." : "Send Message"}
               </button>
             </form>
           </div>
           
           {/* Contact Details */}
-          <div>
-            <div className="brutal-border bg-[var(--brutal-dark)] text-[var(--brutal-white)] p-3 mb-6 inline-block">
-              <h3 className="courier text-lg uppercase font-bold tracking-wider">STUDIO DETAILS</h3>
-            </div>
+          <div className="space-y-6">
+            <h3 className="inter-font text-xl font-semibold text-[var(--modern-dark)] mb-6">Studio Details</h3>
             
-            <div className="space-y-6">
-              <div className="brutal-border bg-[var(--brutal-grey)] text-[var(--brutal-white)] p-6">
-                <h4 className="courier text-sm uppercase font-bold tracking-wider mb-2">ADDRESS</h4>
-                <p className="helvetica text-base uppercase tracking-wide">
-                  123 CONCRETE STREET<br />
-                  BRUTALIST DISTRICT<br />
-                  LONDON EC1A 1BB
+            <div className="space-y-4">
+              <div className="modern-card p-6">
+                <h4 className="inter-font text-sm font-semibold text-[var(--modern-dark)] mb-2">Address</h4>
+                <p className="inter-font text-sm text-[var(--modern-grey)]">
+                  123 Concrete Street<br />
+                  Design District<br />
+                  London EC1A 1BB
                 </p>
               </div>
               
-              <div className="brutal-border bg-[var(--brutal-grey)] text-[var(--brutal-white)] p-6">
-                <h4 className="courier text-sm uppercase font-bold tracking-wider mb-2">PHONE</h4>
-                <p className="helvetica text-base uppercase tracking-wide">+44 20 7946 0958</p>
+              <div className="modern-card p-6">
+                <h4 className="inter-font text-sm font-semibold text-[var(--modern-dark)] mb-2">Phone</h4>
+                <p className="inter-font text-sm text-[var(--modern-grey)]">+44 20 7946 0958</p>
               </div>
               
-              <div className="brutal-border bg-[var(--brutal-grey)] text-[var(--brutal-white)] p-6">
-                <h4 className="courier text-sm uppercase font-bold tracking-wider mb-2">EMAIL</h4>
-                <p className="helvetica text-base uppercase tracking-wide">MARCUS@CONCRETESTUDIO.COM</p>
+              <div className="modern-card p-6">
+                <h4 className="inter-font text-sm font-semibold text-[var(--modern-dark)] mb-2">Email</h4>
+                <p className="inter-font text-sm text-[var(--modern-grey)]">marcus@concretestudio.com</p>
               </div>
               
-              <div className="brutal-border bg-[var(--brutal-black)] text-[var(--brutal-white)] p-6">
-                <h4 className="courier text-sm uppercase font-bold tracking-wider mb-4">STUDIO HOURS</h4>
-                <div className="space-y-2 helvetica text-sm uppercase tracking-wide">
-                  <p>MONDAY - FRIDAY: 09:00 - 18:00</p>
-                  <p>SATURDAY: 10:00 - 14:00</p>
-                  <p>SUNDAY: CLOSED</p>
+              <div className="bg-[var(--modern-accent)] bg-opacity-10 border border-[var(--modern-accent)] border-opacity-20 rounded-lg p-6">
+                <h4 className="inter-font text-sm font-semibold text-[var(--modern-dark)] mb-4">Studio Hours</h4>
+                <div className="space-y-2 inter-font text-sm text-[var(--modern-grey)]">
+                  <p>Monday - Friday: 09:00 - 18:00</p>
+                  <p>Saturday: 10:00 - 14:00</p>
+                  <p>Sunday: Closed</p>
                 </div>
               </div>
             </div>
