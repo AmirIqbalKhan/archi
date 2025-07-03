@@ -1,4 +1,4 @@
-import { projects, contacts, type Project, type Contact, type InsertProject, type InsertContact } from "@shared/schema";
+import type { Project, Contact, InsertProject, InsertContact } from "../../../../shared/schema";
 
 export interface IStorage {
   getProjects(): Promise<Project[]>;
@@ -7,7 +7,7 @@ export interface IStorage {
   createContact(contact: InsertContact): Promise<Contact>;
 }
 
-export class MemStorage implements IStorage {
+class MemStorage implements IStorage {
   private projects: Map<number, Project>;
   private contacts: Map<number, Contact>;
   private currentProjectId: number;
@@ -18,8 +18,6 @@ export class MemStorage implements IStorage {
     this.contacts = new Map();
     this.currentProjectId = 1;
     this.currentContactId = 1;
-    
-    // Initialize with project data
     this.initializeProjects();
   }
 
@@ -119,4 +117,4 @@ export class MemStorage implements IStorage {
   }
 }
 
-export const storage = new MemStorage();
+export const storage = new MemStorage(); 
