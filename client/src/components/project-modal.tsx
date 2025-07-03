@@ -31,64 +31,78 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
   return (
     <div className="modal-overlay" onClick={handleOverlayClick}>
-      <div className="modal-content bg-[var(--modern-background)] border border-white border-opacity-10">
-        <button className="close-button bg-white bg-opacity-10 backdrop-blur-md border border-white border-opacity-20 text-white hover:bg-opacity-20" onClick={onClose}>
+      <div className="modal-content bg-white border border-[var(--modern-border)] shadow-2xl">
+        <button className="close-button bg-gray-100 hover:bg-gray-200 border border-[var(--modern-border)] text-[var(--modern-dark)]" onClick={onClose}>
           ×
         </button>
         
         <div className="p-6 sm:p-12">
           <div className="mb-8">
-            <div className="bg-gradient-to-r from-[var(--modern-accent)] to-[var(--modern-gradient-2)] text-white px-4 py-2 rounded-full text-sm font-semibold inline-block mb-4">
+            <div className="bg-[var(--modern-accent)] text-white px-4 py-2 rounded-full text-sm font-semibold inline-block mb-4">
               {project.type}
             </div>
-            <h2 className="text-2xl sm:text-4xl font-light text-white mb-2">
+            <h2 className="text-2xl sm:text-4xl font-light text-[var(--modern-dark)] mb-2">
               {project.title}
             </h2>
-            <p className="text-gray-400 text-lg">{project.category}</p>
+            <p className="text-[var(--modern-grey)] text-lg">{project.category}</p>
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div>
-              <div className="relative overflow-hidden rounded-2xl">
+              <div className="relative overflow-hidden rounded-2xl shadow-lg">
                 <img 
                   src={project.imageUrl} 
                   alt={project.title}
                   className="w-full h-auto"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-30"></div>
               </div>
             </div>
             <div>
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-xl font-semibold text-white mb-6">Project Details</h3>
+                  <h3 className="text-xl font-semibold text-[var(--modern-dark)] mb-6">Project Details</h3>
                   <div className="space-y-4">
-                    <div className="bg-white bg-opacity-5 backdrop-blur-md border border-white border-opacity-10 rounded-xl p-4">
-                      <span className="text-sm font-medium text-gray-400">Type:</span>
-                      <span className="text-sm text-white ml-2 font-semibold">{project.type}</span>
+                    <div className="bg-gray-50 border border-[var(--modern-border)] rounded-xl p-4">
+                      <span className="text-sm font-medium text-[var(--modern-grey)]">Type:</span>
+                      <span className="text-sm text-[var(--modern-dark)] ml-2 font-semibold">{project.type}</span>
                     </div>
-                    <div className="bg-white bg-opacity-5 backdrop-blur-md border border-white border-opacity-10 rounded-xl p-4">
-                      <span className="text-sm font-medium text-gray-400">Location:</span>
-                      <span className="text-sm text-white ml-2 font-semibold">{project.location}</span>
+                    <div className="bg-gray-50 border border-[var(--modern-border)] rounded-xl p-4">
+                      <span className="text-sm font-medium text-[var(--modern-grey)]">Location:</span>
+                      <span className="text-sm text-[var(--modern-dark)] ml-2 font-semibold">{project.location}</span>
                     </div>
-                    <div className="bg-white bg-opacity-5 backdrop-blur-md border border-white border-opacity-10 rounded-xl p-4">
-                      <span className="text-sm font-medium text-gray-400">Year:</span>
-                      <span className="text-sm text-white ml-2 font-semibold">{project.year}</span>
+                    <div className="bg-gray-50 border border-[var(--modern-border)] rounded-xl p-4">
+                      <span className="text-sm font-medium text-[var(--modern-grey)]">Year:</span>
+                      <span className="text-sm text-[var(--modern-dark)] ml-2 font-semibold">{project.year}</span>
                     </div>
-                    <div className="bg-white bg-opacity-5 backdrop-blur-md border border-white border-opacity-10 rounded-xl p-4">
-                      <span className="text-sm font-medium text-gray-400">Area:</span>
-                      <span className="text-sm text-white ml-2 font-semibold">{project.area}</span>
+                    <div className="bg-[var(--modern-accent-light)] border border-[var(--modern-accent)]/20 rounded-xl p-4">
+                      <span className="text-sm font-medium text-[var(--modern-grey)]">Area:</span>
+                      <span className="text-sm text-[var(--modern-dark)] ml-2 font-semibold">{project.area}</span>
                     </div>
                   </div>
                 </div>
                 
                 <div>
-                  <h3 className="text-xl font-semibold text-white mb-4">Description</h3>
-                  <div className="bg-white bg-opacity-5 backdrop-blur-md border border-white border-opacity-10 rounded-xl p-6">
-                    <p className="text-base leading-relaxed text-gray-300">
+                  <h3 className="text-xl font-semibold text-[var(--modern-dark)] mb-4">Description</h3>
+                  <div className="bg-gray-50 border border-[var(--modern-border)] rounded-xl p-6">
+                    <p className="text-base leading-relaxed text-[var(--modern-grey)]">
                       {project.description}
                     </p>
                   </div>
+                </div>
+                
+                <div className="flex gap-4 pt-4">
+                  <button 
+                    onClick={onClose}
+                    className="flex-1 bg-[var(--modern-accent)] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[var(--modern-gradient-2)] transition-all duration-300"
+                  >
+                    Contact for Project
+                  </button>
+                  <button 
+                    onClick={onClose}
+                    className="px-6 py-3 border border-[var(--modern-border)] text-[var(--modern-dark)] rounded-lg font-medium hover:bg-[var(--modern-accent-light)] transition-all duration-300"
+                  >
+                    Close
+                  </button>
                 </div>
               </div>
             </div>

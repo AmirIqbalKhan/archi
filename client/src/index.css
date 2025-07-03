@@ -24,16 +24,16 @@
   --ring: hsl(220, 15%, 20%);
   --radius: 0.5rem;
   
-  /* Modern attractive color scheme */
-  --modern-dark: hsl(220, 25%, 15%);
+  /* Clean modern color scheme - webyansh.com inspired */
+  --modern-dark: hsl(210, 24%, 16%);
   --modern-light: hsl(0, 0%, 100%);
   --modern-grey: hsl(215, 16%, 47%);
-  --modern-background: hsl(225, 30%, 8%);
-  --modern-accent: hsl(280, 60%, 60%);
-  --modern-accent-light: hsl(280, 60%, 95%);
-  --modern-border: hsl(225, 20%, 20%);
-  --modern-gradient-1: hsl(280, 60%, 60%);
-  --modern-gradient-2: hsl(240, 70%, 65%);
+  --modern-background: hsl(0, 0%, 100%);
+  --modern-accent: hsl(221, 83%, 53%);
+  --modern-accent-light: hsl(221, 83%, 98%);
+  --modern-border: hsl(220, 13%, 91%);
+  --modern-gradient-1: hsl(221, 83%, 53%);
+  --modern-gradient-2: hsl(262, 83%, 58%);
 }
 
 .dark {
@@ -67,10 +67,9 @@
   }
 
   body {
-    @apply bg-[var(--modern-background)] text-[var(--modern-light)] font-sans antialiased;
+    @apply bg-[var(--modern-background)] text-[var(--modern-dark)] font-sans antialiased;
     overflow-x: hidden;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    background: linear-gradient(135deg, var(--modern-background) 0%, hsl(225, 25%, 12%) 100%);
   }
 }
 

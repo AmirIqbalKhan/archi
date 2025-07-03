@@ -12,13 +12,13 @@ export default function ProjectsSection() {
 
   if (isLoading) {
     return (
-      <section id="projects" className="min-h-screen py-20">
+      <section id="projects" className="py-16 sm:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-5xl font-light text-white mb-6">Featured Projects</h2>
+            <h2 className="text-3xl sm:text-5xl font-light text-[var(--modern-dark)] mb-6">Selected Projects</h2>
             <div className="w-20 h-1 bg-gradient-to-r from-[var(--modern-accent)] to-[var(--modern-gradient-2)] mx-auto"></div>
           </div>
-          <div className="text-center text-gray-400">Loading projects...</div>
+          <div className="text-center text-[var(--modern-grey)]">Loading projects...</div>
         </div>
       </section>
     );
@@ -26,13 +26,13 @@ export default function ProjectsSection() {
 
   return (
     <>
-      <section id="projects" className="py-20">
+      <section id="projects" className="py-16 sm:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-5xl font-light text-white mb-6">Featured Projects</h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-[var(--modern-accent)] to-[var(--modern-gradient-2)] mx-auto mb-8"></div>
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Discover our portfolio of innovative architectural projects that push the boundaries of design and functionality
+            <p className="text-sm text-[var(--modern-grey)] mb-4 uppercase tracking-wider">Portfolio</p>
+            <h2 className="text-3xl sm:text-5xl font-light text-[var(--modern-dark)] mb-6">Selected Success Stories</h2>
+            <p className="text-lg text-[var(--modern-grey)] max-w-3xl mx-auto leading-relaxed">
+              Explore our portfolio of exceptional architectural projects that transform spaces and create lasting impact for our clients worldwide
             </p>
           </div>
           
@@ -43,36 +43,65 @@ export default function ProjectsSection() {
                 className="group cursor-pointer"
                 onClick={() => setSelectedProject(project)}
               >
-                <div className="relative overflow-hidden rounded-2xl bg-white bg-opacity-5 backdrop-blur-md border border-white border-opacity-10 hover:border-opacity-20 transition-all duration-500 hover:transform hover:scale-105">
+                <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 hover:transform hover:scale-105 border border-[var(--modern-border)]">
                   <div className="relative h-64 sm:h-72 overflow-hidden">
                     <img 
                       src={project.imageUrl} 
                       alt={project.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                     <div className="absolute top-4 right-4">
-                      <div className="bg-gradient-to-r from-[var(--modern-accent)] to-[var(--modern-gradient-2)] text-white px-3 py-1 rounded-full text-xs font-semibold">
+                      <div className="bg-[var(--modern-accent)] text-white px-3 py-1 rounded-full text-xs font-semibold">
                         {project.type}
+                      </div>
+                    </div>
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <div className="text-white">
+                        <h3 className="text-lg font-semibold mb-1">{project.title}</h3>
+                        <p className="text-sm opacity-90">{project.category}</p>
                       </div>
                     </div>
                   </div>
                   
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-[var(--modern-accent)] transition-colors duration-300">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-400 text-sm mb-4">{project.category}</p>
-                    <div className="flex items-center justify-between text-xs text-gray-500">
+                    <div className="flex items-center justify-between text-sm text-[var(--modern-grey)] mb-4">
                       <span>{project.location}</span>
                       <span>{project.year}</span>
                     </div>
+                    
+                    <p className="text-[var(--modern-grey)] text-sm leading-relaxed line-clamp-3">
+                      {project.description}
+                    </p>
+                    
+                    <div className="mt-4 pt-4 border-t border-[var(--modern-border)]">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs text-[var(--modern-grey)]">Area: {project.area}</span>
+                        <span className="text-[var(--modern-accent)] text-sm font-medium group-hover:underline">
+                          View Details →
+                        </span>
+                      </div>
+                    </div>
                   </div>
-                  
-                  <div className="absolute inset-0 bg-gradient-to-r from-[var(--modern-accent)] to-[var(--modern-gradient-2)] opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-2xl"></div>
                 </div>
               </div>
             ))}
+          </div>
+          
+          <div className="text-center mt-16">
+            <h3 className="text-2xl sm:text-3xl font-light text-[var(--modern-dark)] mb-6">Explore all projects</h3>
+            <p className="text-[var(--modern-grey)] mb-8">Join over 50+ clients already growing with us through exceptional architectural design</p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="bg-[var(--modern-accent)] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[var(--modern-gradient-2)] hover:shadow-lg transition-all duration-300">
+                View All Projects
+              </button>
+              <button 
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                className="border border-[var(--modern-border)] text-[var(--modern-dark)] px-8 py-4 rounded-lg font-medium hover:bg-[var(--modern-accent-light)] transition-all duration-300"
+              >
+                Book a Call
+              </button>
+            </div>
           </div>
         </div>
       </section>

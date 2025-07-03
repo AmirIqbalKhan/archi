@@ -106,6 +106,7 @@ This is a full-stack web application for an architectural portfolio featuring a 
 Changelog:
 - July 03, 2025. Initial setup with brutalist theme
 - July 03, 2025. Updated to modern minimal theme with Inter typography, rounded corners, and clean aesthetic
+- July 03, 2025. Complete redesign inspired by webyansh.com - clean white backgrounds, professional typography, subtle shadows, and mobile-first responsive design
 ```
 
 ## User Preferences
